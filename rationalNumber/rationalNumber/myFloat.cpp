@@ -1,15 +1,38 @@
 #include "myFloat.h"
 #include <stdio.h>
-#define N 100000 //точность сохранения числа
+#include <cmath>
+#define N 10000 //точность сохранения числа
 #define LEN 8 //количество простых чисел, на которое проверяется
-#define MAXINTEGERPART 9999 //Максимально сохраняемая целая часть числа
-#define MAX  MAXINTEGERPART * N
+#define MAX  999999999 //Максимально сохраняемое число
+
+bool CanMult(int a, int b)
+{
+	bool res = true;
+	if (a != 0 && b != 0)
+	{
+		if (abs(a) > abs(MAX / b))
+		{
+			res = false;
+		}
+	}
+	return res;
+}
+
+bool CanSum(int a, int b)
+{
+	bool res = true;
+	if (abs(a) > MAX - abs(b))
+	{
+		res = false;
+	}
+	return res;
+}
 
 MyFloat::MyFloat(double x)
 {
-	if ((x > 0) && ((int)x <= MAXINTEGERPART) || (x < 0) && ((int)-1 * x <= MAXINTEGERPART))
+	if (abs(x) < (double)(MAX / N))
 	{
-		n = (int)x * N;
+		n = (int)(x * N);
 		isSaturaded = false;
 	}
 	else
@@ -43,7 +66,11 @@ void MyFloat::Norm()
 
 void MyFloat::Print()
 {
-	printf("%d/%d\t%f\n", n, d, (double)n/d);
+	if (isSaturaded)
+	{
+		printf("Data can be incorrect because this is saturaded number ");
+	}
+	printf("%d/%d\t%f\n", n, d, (double)n / d);
 }
 
 int MyFloat::GetNum()
@@ -76,41 +103,43 @@ MyFloat operator +(MyFloat x, MyFloat y)
 	int secondNum;
 	int denum;
 	int num;
-	if (isOverfllowMult(x.GetNum(), y.GetDen()))
+	if (CanMult(x.GetNum(), y.GetDen()))
+	{
+		firstNum = x.GetNum() * y.GetDen();
+	}
+	else
 	{
 		firstNum = MAX;
 		isOverflow = true;
 	}
-	else
+	if (CanMult(y.GetNum(), x.GetDen()))
 	{
-		firstNum = x.GetNum() * y.GetDen();
+		secondNum = y.GetNum() * x.GetDen();
 	}
-	if (isOverfllowMult(y.GetNum(), x.GetDen()))
+	else
 	{
 		secondNum = MAX;
 		isOverflow = true;
 	}
-	else
+	if (CanMult(x.GetDen(), y.GetDen()))
 	{
-		secondNum = y.GetNum() * x.GetDen();
+		denum = x.GetDen() * y.GetDen();
 	}
-	if (isOverfllowMult(x.GetDen(), y.GetDen()))
+	else
 	{
 		denum = MAX;
 		isOverflow = true;
 	}
-	else
-	{
-		denum = x.GetDen() * y.GetDen();
-	}
-	if (isOverflowSum(firstNum, secondNum))
+	if (CanSum(firstNum, secondNum))
 	{
 		num = firstNum + secondNum;
 	}
 	else
 	{
 		num = MAX;
+		isOverflow = true;
 	}
+	return MyFloat(num, denum, isOverflow);
 }
 
 MyFloat operator -(MyFloat x, MyFloat y)
@@ -121,14 +150,33 @@ MyFloat operator -(MyFloat x, MyFloat y)
 
 MyFloat operator *(MyFloat x, MyFloat y)
 {
-	int num = x.GetNum() * y.GetNum();
-	int den = y.GetDen() * x.GetDen();
-	return MyFloat(num, den);
+	int num;
+	int den;
+	bool isOverflow = x.GetIsSaturaded() || y.GetIsSaturaded();
+	if (CanMult(x.GetNum(), y.GetNum()))
+	{
+		num = x.GetNum() * y.GetNum();
+	}
+	else
+	{
+		num = MAX;
+		isOverflow = true;
+	}
+	if (CanMult(x.GetDen(), y.GetDen()))
+	{
+		den = x.GetDen() * y.GetDen();
+	}
+	else
+	{
+		den = MAX;
+		isOverflow = true;
+	}
+	return MyFloat(num, den, isOverflow);
 }
 
 MyFloat operator /(MyFloat x, MyFloat y)
 {
-	y = MyFloat(y.GetDen(), y.GetNum());
+	y = MyFloat(y.GetDen(), y.GetNum(), y.GetIsSaturaded());
 	return operator*(x, y);
 }
 
@@ -154,34 +202,4 @@ MyFloat operator /(MyFloat x, double y)
 {
 	MyFloat yNew = MyFloat(y);
 	return operator /(x, yNew);
-}
-
-bool isOverfllowMult(int a, int b)
-{
-	bool res = true;
-	if ((a > 0 && b > 0) || (a < 0 && b < 0))
-	{
-		if (a > MAX / b)
-		{
-			res = false;
-		}
-	}
-	else
-	{
-		if (a < MAX / b)
-		{
-			res = false;
-		}
-	}
-	return res;
-}
-
-bool isOverflowSum(int a, int b)
-{
-	bool res = true;
-	if (((b > 0) && (a > MAX - b)) || ((b < 0) && (a < MAX - b)))
-	{
-		res = false;
-	}
-	return res;
 }

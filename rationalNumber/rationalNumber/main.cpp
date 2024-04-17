@@ -2,7 +2,7 @@
 
 int main()
 {
-	double first = 1000.0, second = 1.1;
+	double first = 9999.0, second = 9999.0;
 
 	MyFloat x = MyFloat(first);
 	x.Print();
