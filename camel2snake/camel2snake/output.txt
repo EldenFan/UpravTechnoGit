@@ -1,0 +1,15 @@
+camel_case
+snakeCase
+error			(Error_Case)
+error			(number_1ase)
+error			(number2ase)
+error			(1digit_case)
+error			(2digitCase)
+camel_case_example
+snakeCaseExample
+error			(noncamelcasesnakecaseexample)
+camel_case_example
+error			(snake_case_example_2)
+nonCamelCaseSnakeCaseExample
+notcamelorSnakeCaseExample
+non_camel_case_example

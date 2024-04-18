@@ -1,0 +1,4 @@
+﻿  camel2snake.c
+C:\Users\Денис\source\repos\camel2snake\camel2snake\camel2snake.c(57,27): warning C4013: malloc: нет определения; предполагается "extern" с возвратом типа "int"
+C:\Users\Денис\source\repos\camel2snake\camel2snake\camel2snake.c(61,9): warning C4013: exit: нет определения; предполагается "extern" с возвратом типа "int"
+  camel2snake.vcxproj -> C:\Users\Денис\source\repos\camel2snake\Debug\camel2snake.exe
