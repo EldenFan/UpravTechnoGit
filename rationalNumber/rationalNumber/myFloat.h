@@ -2,17 +2,15 @@
 
 class MyFloat 
 {
-private:
+protected:
 	int n, d;
 	void Norm();
-	bool isSaturaded;
-	int maxNum;
 public:
 	MyFloat(double);
-	MyFloat(int, int, bool);
+	MyFloat(int, int);
+	MyFloat();
 	int GetNum();
 	int GetDen();
-	bool GetIsSaturaded();
 	void Print();
 };
 
@@ -31,3 +29,5 @@ MyFloat operator -(MyFloat x, double y);
 MyFloat operator *(MyFloat x, double y);
 
 MyFloat operator /(MyFloat x, double y);
+
+

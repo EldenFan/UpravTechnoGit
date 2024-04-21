@@ -1,18 +1,28 @@
-#include "myFloat.h"
+#include "SaturatingFloat.h"
 
 int main()
 {
-	double first = 9999.0, second = 9999.0;
+	double first = 99.0, second = 99.0;
 
-	MyFloat x = MyFloat(first);
+	SaturatingFloat x = first;
+	SaturatingFloat y = second;
 	x.Print();
-	MyFloat c = x * second;
+	SaturatingFloat c = x * y;
 	c.Print();
-	c = x + second;
+	c = x + y;
 	c.Print();
-	c = x - second;
+	c = x - y;
 	c.Print();
-	c = x / second;
+	c = x / y;
+	c.Print();
+
+	c = x + y;
+	while (!c.GetIsSaturaded())
+	{
+		c = c + x;
+		c.Print();
+	}
+	c = c + x;
 	c.Print();
 	return 0;
 }
