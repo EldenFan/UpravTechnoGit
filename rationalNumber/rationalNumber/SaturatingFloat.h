@@ -4,7 +4,7 @@ class SaturatingFloat : public MyFloat
 {
 private: 
 	bool isSaturaded;
-	void Saturaded();
+	void Saturaded(bool);
 public:
 	bool GetIsSaturaded();
 	SaturatingFloat(MyFloat, bool);

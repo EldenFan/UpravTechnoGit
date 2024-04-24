@@ -1,19 +1,20 @@
 #include "SaturatingFloat.h"
 #include <stdio.h>
-#include<cmath>
-#define N 100000
+#include <cmath>
 #define MAX 999999
 
-void SaturatingFloat::Saturaded()
+void SaturatingFloat::Saturaded(bool isOverflow = false)
 {
+	isSaturaded = isOverflow;
 	if (n > MAX)
 	{
 		n = MAX;
 		isSaturaded = true;
 	}
-	else
+	if (d > MAX)
 	{
-		isSaturaded = false;
+		d = MAX;
+		isSaturaded = true;
 	}
 }
 
@@ -26,8 +27,7 @@ SaturatingFloat::SaturatingFloat(MyFloat a, bool isOverflow)
 {
 	n = a.GetNum();
 	d = a.GetDen();
-	isSaturaded = isOverflow;
-	Saturaded();
+	Saturaded(isOverflow);
 }
 
 bool SaturatingFloat::GetIsSaturaded()
