@@ -10,9 +10,6 @@ MyFloat::MyFloat(double x)
 	Norm();
 }
 
-MyFloat::MyFloat()
-{
-}
 
 void MyFloat::Norm()
 {

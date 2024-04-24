@@ -15,14 +15,5 @@ int main()
 	c.Print();
 	c = x / y;
 	c.Print();
-
-	c = x + y;
-	while (!c.GetIsSaturaded())
-	{
-		c = c + x;
-		c.Print();
-	}
-	c = c + x;
-	c.Print();
 	return 0;
 }

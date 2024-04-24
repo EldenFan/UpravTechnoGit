@@ -8,7 +8,6 @@ protected:
 public:
 	MyFloat(double);
 	MyFloat(int, int);
-	MyFloat();
 	int GetNum();
 	int GetDen();
 	void Print();

@@ -23,10 +23,8 @@ SaturatingFloat::SaturatingFloat(double x) : MyFloat(x)
 	Saturaded();
 }
 
-SaturatingFloat::SaturatingFloat(MyFloat a, bool isOverflow)
+SaturatingFloat::SaturatingFloat(MyFloat a, bool isOverflow) : MyFloat(a)
 {
-	n = a.GetNum();
-	d = a.GetDen();
 	Saturaded(isOverflow);
 }
 
