@@ -30,8 +30,6 @@ Tree* rotate_right(Tree* myTree) {
 	Tree* temp = myTree->left;         // Store the left child of the node in a temporary variable
 	myTree->left = temp->right;        // Set the left child of the node to the right child of its left child
 	temp->right = myTree;              // Set the right child of the temporary node to the current node
-	correct_height(myTree);            // Update heights of current node and its left child
-	correct_height(temp);               // Update heights of temporary node and its children
 	return temp;                        // Return the new root of the subtree
 }
 
@@ -39,8 +37,6 @@ Tree* rotate_left(Tree* myTree) {
 	Tree* temp = myTree->right;        // Store the right child of the node in a temporary variable
 	myTree->right = temp->left;        // Set the right child of the node to the left child of its right child
 	temp->left = myTree;               // Set the left child of the temporary node to the current node
-	correct_height(myTree);            // Update heights of current node and its right child
-	correct_height(temp);               // Update heights of temporary node and its children
 	return temp;                        // Return the new root of the subtree
 }
 
@@ -73,7 +69,14 @@ Tree* balance(Tree* myTree) {
 	return myTree;
 }
 
+char exists(Tree* myTree, int x) {
+	if (myTree == NULL) return 0;
+	if (myTree->value == x) return 1;
+	return exists(myTree->left, x) || exists(myTree->right, x);
+}
+
 Tree* insert(Tree* myTree, int x) {
+	if (exists(myTree, x)) return myTree; // Ignore if the value already exists
 	if (myTree == NULL) {
 		return create_tree(x);          // Create a new node if tree is empty
 	}
@@ -126,7 +129,7 @@ int arr_len(int arr[]) {
 }
 
 Tree* myTree = NULL;
-int arr[] = { 5, 6, 4, 12, 15, 1, 11, 17, 18, 2, 99, 165, 128 }; // Array of values to insert into the tree
+int arr[] = { 5, 6, 4, 12, 15, 1, 11, 17, 18, 2, 99, 165, 128, 128, 128}; // Array of values to insert into the tree
 
 int main() {
 
@@ -138,5 +141,5 @@ int main() {
 
 	return 0;
 }
-// выпилить высоту
-// проверка на повторы
+// выпилить высоту			done
+// проверка на повторы		done
