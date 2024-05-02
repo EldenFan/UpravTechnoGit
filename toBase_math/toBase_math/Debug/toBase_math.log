@@ -1,0 +1,4 @@
+﻿  toBase_math.c
+C:\Users\Денис\source\repos\toBase_math\toBase_math\toBase_math.c(18,28): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+C:\Users\Денис\source\repos\toBase_math\toBase_math\toBase_math.c(22,36): warning C4244: =: преобразование "double" в "int", возможна потеря данных
+  toBase_math.vcxproj -> C:\Users\Денис\source\repos\toBase_math\Debug\toBase_math.exe
