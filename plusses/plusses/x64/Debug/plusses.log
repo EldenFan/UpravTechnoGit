@@ -1,0 +1,3 @@
+﻿  plusses.cpp
+x64\Debug\complex.obj : warning LNK4042: объект указан более одного раза; лишние не учитываются
+  plusses.vcxproj -> D:\Плюсы\plusses\x64\Debug\plusses.exe
