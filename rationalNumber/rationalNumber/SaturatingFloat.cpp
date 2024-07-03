@@ -3,7 +3,7 @@
 #include <cmath>
 #define MAX 999999
 
-void SaturatingFloat::Saturaded(bool isOverflow = false)
+void SaturatingFloat::Saturaded(bool isOverflow)
 {
 	isSaturaded = isOverflow;
 	if (n > MAX)
@@ -11,16 +11,26 @@ void SaturatingFloat::Saturaded(bool isOverflow = false)
 		n = MAX;
 		isSaturaded = true;
 	}
+	else if (n < (-1 * MAX))
+	{
+		n = -MAX;
+		isSaturaded = true;
+	}
 	if (d > MAX)
 	{
 		d = MAX;
+		isSaturaded = true;
+	}
+	else if (d < (-1 * MAX))
+	{
+		d = -MAX;
 		isSaturaded = true;
 	}
 }
 
 SaturatingFloat::SaturatingFloat(double x) : MyFloat(x)
 {
-	Saturaded();
+	Saturaded(false);
 }
 
 SaturatingFloat::SaturatingFloat(MyFloat a, bool isOverflow) : MyFloat(a)
@@ -35,33 +45,30 @@ bool SaturatingFloat::GetIsSaturaded()
 
 SaturatingFloat operator+(SaturatingFloat a, SaturatingFloat b)
 {
-	bool isOverflow = a.GetIsSaturaded() || b.GetIsSaturaded();
-	return SaturatingFloat((MyFloat)a + (MyFloat)b, isOverflow);
+	//bool isOverflow = a.GetIsSaturaded() || b.GetIsSaturaded();
+	return SaturatingFloat((MyFloat)a + (MyFloat)b, a.GetIsSaturaded() || b.GetIsSaturaded());
 }
 
 SaturatingFloat operator-(SaturatingFloat a, SaturatingFloat b)
 {
-	bool isOverflow = a.GetIsSaturaded() || b.GetIsSaturaded();
-	return ((MyFloat)a - (MyFloat)b, isOverflow);
+	return SaturatingFloat((MyFloat)a - (MyFloat)b, a.GetIsSaturaded() || b.GetIsSaturaded());
 }
 
 SaturatingFloat operator*(SaturatingFloat a, SaturatingFloat b)
 {
-	bool isOverflow = a.GetIsSaturaded() || b.GetIsSaturaded();
-	return SaturatingFloat((MyFloat)a * (MyFloat)b, isOverflow);
+	return SaturatingFloat((MyFloat)a * (MyFloat)b, a.GetIsSaturaded() || b.GetIsSaturaded());
 }
 
 SaturatingFloat operator /(SaturatingFloat a, SaturatingFloat b)
 {
-	bool isOverflow = a.GetIsSaturaded() || b.GetIsSaturaded();
-	return SaturatingFloat((MyFloat)a / (MyFloat)b, isOverflow);
+	return SaturatingFloat((MyFloat)a / (MyFloat)b, a.GetIsSaturaded() || b.GetIsSaturaded());
 }
 
 void SaturatingFloat::Print()
 {
 	if (isSaturaded)
 	{
-		printf("This number can be incorrect ");
+		printf("*");
 	}
-	printf("%d/%d\t%f\n", n, d, (double)n / d);
+	MyFloat::Print();
 }

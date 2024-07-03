@@ -27,7 +27,7 @@ void MyFloat::Norm()
 
 void MyFloat::Print()
 {
-	printf("%d/%d\t%f\n", n, d, (double)n/d);
+	printf("%d/%d[%f]", n, d, (double)n/d);
 }
 
 int MyFloat::GetNum()
