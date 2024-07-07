@@ -5,7 +5,6 @@ class MyVector
 private:
 	T* arr;
 	int size;
-	void Copy(const MyVector<T>&);
 public:
 	MyVector();
 	~MyVector();

@@ -9,7 +9,6 @@ int main()
 	{
 		test.PushBack(i);
 	}
-
 	for (int i = 0; i < test.GetSize(); i++)
 	{
 		std::cout << test[i] << "\t";

@@ -1,4 +1,5 @@
 #include "MyVector.h"
+#include<iostream>
 #include <string>
 
 template<class T>
@@ -34,30 +35,22 @@ T& MyVector<T>::operator[](int index)
 }
 
 template<class T>
-void MyVector<T>::Copy(const MyVector<T>& second)
+MyVector<T>& MyVector<T>::operator=(const MyVector<T>& another)
 {
-    delete[] arr;
-
-    size = second.size;
-    arr = new T[size];
-    for (int i = 0; i < size; i++)
+    if (this != &another)
     {
-        arr[i] = second.arr[i];
+        delete[] arr;
+        size = another.size;
+        arr = new T[size];
+        std::copy(another.arr, another.arr + size, arr);
     }
+    return *this;
 }
 
 template<class T>
 MyVector<T>::MyVector(const MyVector<T>& another)
 {
-    Copy(another);
-}
-
-template<class T>
-MyVector<T>& MyVector<T>::operator=(const MyVector<T>& another)
-{
-    Copy(another);
-
-    return *this;
+    *this = another;
 }
 
 template <class T>
@@ -73,7 +66,7 @@ void MyVector<T>::PushBack(T append)
 
     delete[] arr;
     arr = temp;
-    size++;
+    ++size;
 }
 
 template <class T>
@@ -81,7 +74,7 @@ void MyVector<T>::Pop(int index)
 {
     if (index >= size || index < 0)
     {
-        throw std::string{"index out of range!"};
+        throw std::runtime_error("Failed to open config");
     }
 
     T* temp = new T[size - 1];
