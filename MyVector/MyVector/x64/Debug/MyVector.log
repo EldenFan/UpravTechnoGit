@@ -1,2 +1,52 @@
 ﻿  MyVector.cpp
+  main.cpp
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661: MyVector<int>::MyVector(const MyVector<int> &): отсутствует подходящее определение для запроса на явное создание экземпляра шаблона
+  (компиляция исходного файла "main.cpp")
+  F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(11,2):
+   см. объявление "MyVector<int>::MyVector"
+  
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661: MyVector<int>::MyVector(void): отсутствует подходящее определение для запроса на явное создание экземпляра шаблона
+  (компиляция исходного файла "main.cpp")
+  F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(9,2):
+   см. объявление "MyVector<int>::MyVector"
+  
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661: MyVector<int>::~MyVector(void): отсутствует подходящее определение для запроса на явное создание экземпляра шаблона
+  (компиляция исходного файла "main.cpp")
+  F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(10,3):
+   см. объявление "MyVector<int>::~MyVector"
+  
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661: T &MyVector<T>::operator [](int): отсутствует подходящее определение для запроса на явное создание экземпляра шаблона
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661:         with
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661:         [
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661:             T=int
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661:         ]
+  (компиляция исходного файла "main.cpp")
+  F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(12,5):
+   см. объявление "MyVector<int>::operator []"
+  
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661: int MyVector<int>::GetSize(void): отсутствует подходящее определение для запроса на явное создание экземпляра шаблона
+  (компиляция исходного файла "main.cpp")
+  F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(13,6):
+   см. объявление "MyVector<int>::GetSize"
+  
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661: MyVector<int> &MyVector<int>::operator =(const MyVector<int> &): отсутствует подходящее определение для запроса на явное создание экземпляра шаблона
+  (компиляция исходного файла "main.cpp")
+  F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(14,15):
+   см. объявление "MyVector<int>::operator ="
+  
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661: void MyVector<int>::PushBack(T): отсутствует подходящее определение для запроса на явное создание экземпляра шаблона
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661:         with
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661:         [
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661:             T=int
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661:         ]
+  (компиляция исходного файла "main.cpp")
+  F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(15,7):
+   см. объявление "MyVector<int>::PushBack"
+  
+F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(19,29): warning C4661: void MyVector<int>::Pop(int): отсутствует подходящее определение для запроса на явное создание экземпляра шаблона
+  (компиляция исходного файла "main.cpp")
+  F:\Программирование\UpravTechnoGit\MyVector\MyVector\MyVector.h(16,7):
+   см. объявление "MyVector<int>::Pop"
+  
+  Создание кода...
   MyVector.vcxproj -> F:\Программирование\UpravTechnoGit\MyVector\x64\Debug\MyVector.exe

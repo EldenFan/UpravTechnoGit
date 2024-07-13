@@ -5,14 +5,14 @@
 template<class T>
 MyVector<T>::MyVector()
 {
-    arr = nullptr;
+    data = nullptr;
     size = 0;
 }
 
 template<class T>
 MyVector<T>::~MyVector()
 {
-    delete[] arr;
+    delete[] data;
 }
 
 template<class T>
@@ -26,11 +26,11 @@ T& MyVector<T>::operator[](int index)
 {
     if (index >= size)
     {
-        throw std::string{"index out of range!"};
+        throw std::runtime_error("index out of range!");
     }
     else
     {
-        return arr[index];
+        return data[index];
     }
 }
 
@@ -39,10 +39,13 @@ MyVector<T>& MyVector<T>::operator=(const MyVector<T>& another)
 {
     if (this != &another)
     {
-        delete[] arr;
+        delete[] data;
         size = another.size;
-        arr = new T[size];
-        std::copy(another.arr, another.arr + size, arr);
+        data = new T[size];
+        for (int i = 0; i < size; i++)
+        {
+            data[i] = another.data[i];
+        }
     }
     return *this;
 }
@@ -60,12 +63,12 @@ void MyVector<T>::PushBack(T append)
 
     for (int i = 0; i < size; i++)
     {
-        temp[i] = arr[i];
+        temp[i] = data[i];
     }
     temp[size] = append;
 
-    delete[] arr;
-    arr = temp;
+    delete[] data;
+    data = temp;
     ++size;
 }
 
@@ -74,7 +77,7 @@ void MyVector<T>::Pop(int index)
 {
     if (index >= size || index < 0)
     {
-        throw std::runtime_error("Failed to open config");
+        throw std::runtime_error("index out of range!");
     }
 
     T* temp = new T[size - 1];
@@ -83,15 +86,15 @@ void MyVector<T>::Pop(int index)
     {
         if (i < index)
         {
-            temp[i] = arr[i];
+            temp[i] = data[i];
         }
         if (i > index)
         {
-            temp[i - 1] = arr[i];
+            temp[i - 1] = data[i];
         }
     }
 
-    delete[] arr;
-    arr = temp;
+    delete[] data;
+    data = temp;
     size--;
 }

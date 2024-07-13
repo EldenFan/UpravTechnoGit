@@ -3,7 +3,7 @@ template<class T>
 class MyVector
 {
 private:
-	T* arr;
+	T* data;
 	int size;
 public:
 	MyVector();
