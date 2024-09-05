@@ -3,60 +3,44 @@
 
 int main()
 {
-	MyVector<int> test;
+	MyVector<MyVector<int>> test;
+	MyVector<int> now;
 
 	for (int i = 0; i < 10; i++)
 	{
-		test.Insert(i);
+		now.Push_back(i);
 	}
+	test.Push_back(now);
+	test.Push_back(now);
 	for (int i = 0; i < test.GetSize(); i++)
 	{
-		std::cout << test[i] << "\t";
+		for (int j = 0; j < test[i].GetSize(); j++) {
+			std::cout << test[i][j] << '\t';
+		}
+		std::cout << std::endl;
 	}
 	std::cout << std::endl;
 
 	for (auto a : test)
 	{
-		std::cout << a << "\t";
+		for (auto b : a) {
+			std::cout << b << "\t";
+		}
+		std::cout << std::endl;
 	}
 	std::cout << std::endl;
-
-	if (std::find(test.begin(), test.end(), 1) == test.end())
-	{
-		std::cout << "Error" << std::endl;
-	}
-	else
-	{
-		std::cout << "Correct" << std::endl;
-	}
 
 	test.Pop();
 	test.Pop(test.begin());
-	test.Pop(4);
 
 	for (auto a : test)
 	{
-		std::cout << a << "\t";
+		for (auto b : a) {
+			std::cout << b << "\t";
+		}
+		std::cout << std::endl;
 	}
 	std::cout << std::endl;
-
-	test.Insert(5, 4);
-
-	for (auto a : test)
-	{
-		std::cout << a << "\t";
-	}
-	std::cout << std::endl;
-
-	if (std::find(test.begin(), test.end(), 100) == test.end())
-	{
-		std::cout << "Correct" << std::endl;
-	}
-	else
-	{
-		std::cout << "Error" << std::endl;
-	}
-
 
 	return 0;
 }

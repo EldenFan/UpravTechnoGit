@@ -3,8 +3,7 @@
 #include <algorithm>
 
 template<class T>
-class MyVector
-{
+class MyVector {
 private:
 	T* data;
 	int size;
@@ -16,49 +15,49 @@ private:
 		return temp;
 	}
 public:
-	MyVector()
-	{
+	MyVector() {
 		data = nullptr;
 		size = 0;
 		capacity = 0;
 	}
 
-	~MyVector()
-	{
+	~MyVector() {
 		delete[] data;
 	}
 
-	int GetSize()
-	{
+	int GetSize() {
 		return size;
 	}
 
-	T& operator[] (int index)
-	{
-		if (index >= size)
-		{
+	T& operator[] (int index) {
+		if (index >= size) {
 			throw std::runtime_error("index out of range!");
 		}
-		else
-		{
+		else {
 			return data[index];
 		}
 	}
 
-	MyVector<T>& operator =(const MyVector& another)
-	 {
-		if (this != &another)
-		{
+	MyVector<T>& operator =(const MyVector& another) {
+		if (this != &another) {
 			delete[] data;
 			size = another.size;
-			data = new T[capacity];
 			capacity = another.capacity;
+			data = new T[capacity];
 			std::copy(another.data, another.data + size, data);
 		}
 		return *this;
 	 }
-	class Iterator
-	{
+
+	MyVector(const MyVector& another) {
+			delete[] data;
+			size = another.size;
+			capacity = another.capacity;
+			data = new T[capacity];
+			std::copy(another.data, another.data + size, data);
+	}
+
+	class Iterator {
 	private:
 		T* ptr;
 	public:
@@ -68,102 +67,83 @@ public:
 		using pointer = T*;
 		using reference = T&;
 
-		Iterator(pointer element)
-		{
+		Iterator(pointer element) {
 			ptr = element;
 		}
 
-		reference operator*() const
-		{
+		reference operator*() const {
 			return *ptr;
 		}
 
-		pointer operator -> ()
-		{
+		pointer operator -> () {
 			return ptr;
 		}
 
-		Iterator& operator++()
-		{
+		Iterator& operator++() {
 			++ptr;
 			return *this;
 		}
 
-		Iterator operator++(int)
-		{
+		Iterator operator++(int) {
 			Iterator temp = *this;
 			++(*this);
 			return temp;
 		}
 
-		Iterator& operator--()
-		{
+		Iterator& operator--() {
 			--ptr;
 			return *this;
 		}
 
-		Iterator operator--(int)
-		{
+		Iterator operator--(int) {
 			Iterator temp = *this;
 			--(*this);
 			return temp;
 		}
 
-		Iterator operator+ (difference_type n)
-		{
+		Iterator operator+ (difference_type n) {
 			return Iterator(ptr + n);
 		}
 
-		Iterator operator- (difference_type n)
-		{
+		Iterator operator- (difference_type n) {
 			return Iterator(ptr - n);
 		}
 
-		reference operator[](difference_type n)
-		{
+		reference operator[](difference_type n) {
 			return *(ptr + n);
 		}
 
-		friend bool operator == (const Iterator& a, const Iterator& b)
-		{
+		friend bool operator == (const Iterator& a, const Iterator& b) {
 			return a.ptr == b.ptr;
 		}
 
-		friend bool operator != (const Iterator& a, const Iterator& b)
-		{
+		friend bool operator != (const Iterator& a, const Iterator& b) {
 			return a.ptr != b.ptr;
 		}
 
-		friend bool operator < (const Iterator& a, const Iterator& b)
-		{
+		friend bool operator < (const Iterator& a, const Iterator& b) {
 			return a.ptr < b.ptr;
 		}
 
-		friend bool operator > (const Iterator& a, const Iterator& b)
-		{
+		friend bool operator > (const Iterator& a, const Iterator& b) {
 			return a.ptr > b.ptr;
 		}
 
-		friend difference_type operator - (const Iterator& a, const Iterator& b)
-		{
+		friend difference_type operator - (const Iterator& a, const Iterator& b) {
 			return a.ptr - b.ptr;
 		}
 	};
 
-	Iterator begin()
-	{
+	Iterator begin() {
 		return Iterator(data);
 	}
 
-	Iterator end()
-	{
+	Iterator end() {
 		return Iterator(data + size);
 	}
 
-	void Pop(Iterator place)
-	{
-		if (place < this->begin() || place > this->end())
-		{
+	void Pop(Iterator place) {
+		if (place < this->begin() || place > this->end()) {
 			throw std::runtime_error("Iterator out of range!");
 		}
 		T* temp = new T[capacity];
@@ -174,17 +154,14 @@ public:
 		data = temp;
 	}
 
-	void Pop(int index)
-	{
-		if (index < 0 || index >= size)
-		{
+	void Pop(int index) {
+		if (index < 0 || index >= size) {
 			throw std::runtime_error("Index out of range!");
 		}
 		Pop(this->begin() + index);
 	}
 
-	void Pop()
-	{
+	void Pop() {
 		if (size == 0)
 		{
 			throw std::runtime_error("Vector is empty!");
@@ -192,44 +169,14 @@ public:
 		Pop(size - 1);
 	}
 
-	void Insert(const T& append)
-	{
-		if (capacity == size)
-		{
+	void Push_back(const T& append) {
+		if (capacity == size) {
 			T* temp = reallocate();
 			std::copy(this->begin(), this->end(), temp);
 			delete[] data;
 			data = temp;
 		}
 		data[size++] = append;
-	}
-
-	void Insert(const T& append, Iterator place)
-	{
-		T* temp;
-		if (capacity == size)
-		{
-			temp = reallocate();
-		}
-		else
-		{
-			temp = new T[capacity];
-		}
-		std::copy(this->begin(), place, temp);
-		temp[place - this->begin()] = append;
-		std::copy(place, this->end(), temp + (place - this->begin()) + 1);
-		delete[] data;
-		data = temp;
-		++size;
-	}
-
-	void Insert(const T& append, int index)
-	{
-		if (index < 0 || index >= size)
-		{
-			throw std::runtime_error("Index out of range!");
-		}
-		Insert(append, this->begin() + index);
 	}
 };
 
