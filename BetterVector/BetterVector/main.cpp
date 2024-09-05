@@ -1,30 +1,40 @@
 #include "MyVector.h"
 #include <iostream>
+#include "SaturatingFloat.h"
 
 int main()
 {
-	MyVector<MyVector<int>> test;
-	MyVector<int> now;
+	MyVector<MyVector<SaturatingFloat>> test;
+	MyVector<SaturatingFloat> now;
+	MyVector<SaturatingFloat> empty;
 
-	for (int i = 0; i < 10; i++)
-	{
-		now.Push_back(i);
+	for (double i = 0; i <= 1; i += 0.1) {
+		SaturatingFloat temp = i;
+		now.Push_back(temp);
 	}
 	test.Push_back(now);
+	now = empty;
+	for (double i = 1; i < 10; i++)
+	{
+		SaturatingFloat temp = i;
+		now.Push_back(temp);
+	}
 	test.Push_back(now);
+
 	for (int i = 0; i < test.GetSize(); i++)
 	{
 		for (int j = 0; j < test[i].GetSize(); j++) {
-			std::cout << test[i][j] << '\t';
+			test[i][j].Print();
+			std::cout << "\t";
 		}
 		std::cout << std::endl;
 	}
-	std::cout << std::endl;
 
 	for (auto a : test)
 	{
 		for (auto b : a) {
-			std::cout << b << "\t";
+			 b.Print();
+			 std::cout << "\t";
 		}
 		std::cout << std::endl;
 	}
@@ -36,12 +46,13 @@ int main()
 	for (auto a : test)
 	{
 		for (auto b : a) {
-			std::cout << b << "\t";
+			b.Print();
+			std::cout << "\t";
 		}
 		std::cout << std::endl;
 	}
 	std::cout << std::endl;
-
+	
 	return 0;
 }
 

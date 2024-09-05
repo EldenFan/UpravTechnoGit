@@ -8,8 +8,7 @@ private:
 	T* data;
 	int size;
 	int capacity;
-	T* reallocate()
-	{
+	T* reallocate() {
 		capacity = capacity > 0 ? capacity * 2 : 1;
 		T* temp = new T[capacity];
 		return temp;
@@ -50,11 +49,7 @@ public:
 	 }
 
 	MyVector(const MyVector& another) {
-			delete[] data;
-			size = another.size;
-			capacity = another.capacity;
-			data = new T[capacity];
-			std::copy(another.data, another.data + size, data);
+		*this = another;
 	}
 
 	class Iterator {
@@ -179,5 +174,3 @@ public:
 		data[size++] = append;
 	}
 };
-
-

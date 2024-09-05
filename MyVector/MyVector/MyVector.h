@@ -1,7 +1,6 @@
 #pragma once
 template<class T>
-class MyVector
-{
+class MyVector {
 private:
 	T* data;
 	int size;
