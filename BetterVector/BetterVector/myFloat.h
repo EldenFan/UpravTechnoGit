@@ -15,21 +15,21 @@ public:
 	void Print();
 };
 
-MyFloat operator +(MyFloat x, MyFloat y);
+MyFloat operator +(MyFloat, MyFloat);
 
-MyFloat operator -(MyFloat x, MyFloat y);
+MyFloat operator -(MyFloat, MyFloat);
 
-MyFloat operator *(MyFloat x, MyFloat y);
+MyFloat operator *(MyFloat, MyFloat);
 
-MyFloat operator /(MyFloat x, MyFloat y);
+MyFloat operator /(MyFloat, MyFloat);
 
-MyFloat operator +(MyFloat x, double y);
+MyFloat operator +(MyFloat, double);
 
-MyFloat operator -(MyFloat x, double y);
+MyFloat operator -(MyFloat, double);
 
-MyFloat operator *(MyFloat x, double y);
+MyFloat operator *(MyFloat, double);
 
-MyFloat operator /(MyFloat x, double y);
+MyFloat operator /(MyFloat, double);
 
-
+bool operator !=(MyFloat, MyFloat);
 

@@ -49,7 +49,10 @@ public:
 	 }
 
 	MyVector(const MyVector& another) {
-		*this = another;
+		capacity = another.capacity;
+		data = new T[capacity];
+		size = another.size;
+		std::copy(another.data, another.data + size, data);
 	}
 
 	class Iterator {
@@ -147,6 +150,9 @@ public:
 		--size;
 		delete[] data;
 		data = temp;
+		if ((size & (size - 1)) == 0) {
+			Rezise(size);
+		}
 	}
 
 	void Pop(int index) {
@@ -172,5 +178,42 @@ public:
 			data = temp;
 		}
 		data[size++] = append;
+	}
+
+	friend bool operator == (MyVector& a, MyVector& b) {
+		if (a.GetSize() != b.GetSize()) {
+			return false;
+		}
+		int n = a.GetSize();
+		for (int i = 0; i < n; i++) {
+			if (a[i] != b[i]) {
+				return false;
+			}
+		}
+		return true;
+	}
+
+	void Rezise(int n) {
+		if (n < 0 || n > capacity) {
+			throw std::runtime_error("Capacity out of range!");
+		}
+		int temp = n;
+		if ((n & (n - 1)) != 0) {
+			std::cerr << "Warning: The value of n is not a power of 2. The value will be close to the nearest largest power of 2" << std::endl;
+			temp = 1;
+			while (temp < n) {
+				temp *= 2;
+			}
+		}
+		if (temp == capacity) {
+			std::cerr << "Vector is not rezised. It is already nearest largest power of 2" << std::endl;
+			return;
+		}
+		T* arr = new T[temp];
+		capacity = temp;
+		size = temp;
+		std::copy(data, data + size, arr);
+		delete[] data;
+		data = arr;
 	}
 };
