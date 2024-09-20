@@ -79,3 +79,9 @@ void SaturatingFloat::Print()
 SaturatingFloat::SaturatingFloat(const SaturatingFloat& another) : MyFloat(another.n, another.d) {
 	isSaturaded = another.isSaturaded;
 }
+
+bool operator !=(SaturatingFloat a, SaturatingFloat b) {
+	if ((MyFloat)a != (MyFloat)b) return true;
+	if (a.GetIsSaturaded() != b.GetIsSaturaded()) return true;
+	return false;
+}

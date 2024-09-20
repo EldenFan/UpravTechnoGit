@@ -17,4 +17,5 @@ SaturatingFloat operator+(SaturatingFloat, SaturatingFloat);
 SaturatingFloat operator-(SaturatingFloat, SaturatingFloat);
 SaturatingFloat operator*(SaturatingFloat, SaturatingFloat);
 SaturatingFloat operator/(SaturatingFloat, SaturatingFloat);
+bool operator!=(SaturatingFloat, SaturatingFloat);
 

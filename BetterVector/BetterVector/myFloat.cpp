@@ -107,3 +107,8 @@ MyFloat& MyFloat::operator= (const MyFloat& another) {
 MyFloat::MyFloat(const MyFloat& another) {
 	*this = another;
 }
+
+bool operator!=(MyFloat a, MyFloat b) {
+	if (a.GetNum() == b.GetNum() && a.GetDen() == b.GetDen()) return false;
+	return true;
+}
