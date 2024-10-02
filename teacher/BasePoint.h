@@ -3,6 +3,7 @@ class BasePoint {
 protected:
 	int x0, y0;
 	int colorR, colorG, colorB;
+	bool isShade;
 public:
 	BasePoint(int, int, int, int, int);
 	virtual void draw() = 0;

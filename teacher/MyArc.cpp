@@ -1,6 +1,6 @@
 #include "MyArc.h"
 #include "VSTUB.H"
-MyArc::MyArc(int xc, int yc, int r, double a1, double a2, int R, int G, int B, int x0, int y0) : BasePoint(x0, y0, R, G, B) {
+MyArc::MyArc(int xc, int yc, int r, double a1, double a2, int x0, int y0, int R, int G, int B) : BasePoint(x0, y0, R, G, B) {
 	this->xc = xc;
 	this->yc = yc;
 	this->r = r;
@@ -9,11 +9,15 @@ MyArc::MyArc(int xc, int yc, int r, double a1, double a2, int R, int G, int B, i
  }
 
 void MyArc::draw() {
+	if (!isShade) return;
 	std::setcolor(colorR, colorG, colorB);
-	std::drawarc(xc + x0, yc + y0, r, aStart, aEnd);
+	std::putarc(xc + x0, yc + y0, r, aStart, aEnd);
+	isShade = false;
 }
 
 void MyArc::shade() {
+	if (isShade) return;
 	std::setcolor(0, 0, 0);
-	std::drawarc(xc + x0, yc + y0, r, aStart, aEnd);
+	std::putarc(xc + x0, yc + y0, r, aStart, aEnd);
+	isShade = true;
 }

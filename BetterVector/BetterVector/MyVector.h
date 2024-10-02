@@ -39,7 +39,7 @@ public:
 
 	MyVector<T>& operator =(const MyVector& another) {
 		if (this != &another) {
-			delete[] data;
+			delete[] data;//?????
 			size = another.size;
 			capacity = another.capacity;
 			data = new T[capacity];
@@ -181,14 +181,10 @@ public:
 	}
 
 	friend bool operator == (MyVector& a, MyVector& b) {
-		if (a.GetSize() != b.GetSize()) {
-			return false;
-		}
+		if (a.GetSize() != b.GetSize()) return false;
 		int n = a.GetSize();
 		for (int i = 0; i < n; i++) {
-			if (a[i] != b[i]) {
-				return false;
-			}
+			if (a[i] != b[i]) return false;
 		}
 		return true;
 	}

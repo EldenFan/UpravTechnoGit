@@ -18,7 +18,13 @@ public:
 		data = nullptr;
 		size = 0;
 		capacity = 0;
-	}
+	 }
+
+	MyVector(T* arr, size_t size) {
+		capacity = size;
+		this->size = size;
+		std::copy(arr, arr + size, data);
+	 }
 
 	~MyVector() {
 		delete[] data;
@@ -38,19 +44,25 @@ public:
 	}
 
 	MyVector<T>& operator =(const MyVector& another) {
-		if (this != &another) {
-			delete[] data;
-			size = another.size;
-			capacity = another.capacity;
-			data = new T[capacity];
-			std::copy(another.data, another.data + size, data);
+		if (this == &another) {
+			return *this;
 		}
+		if (capacity < another.size) {
+				delete[] data;
+				size = another.size;
+				capacity = another.capacity;
+				data = new T[capacity];
+		}
+		std::copy(another.data, another.data + size, data);
 		return *this;
 	 }
 
 	MyVector(const MyVector& another) {
-		*this = another;
-	}
+		size = another.size;
+		capacity = another.capacity;
+		data = new T[capacity];
+		std::copy(another.data, another.data + size, data);
+	 }
 
 	class Iterator {
 	private:
