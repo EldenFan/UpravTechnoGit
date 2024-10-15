@@ -1,7 +1,8 @@
 #pragma once
 #include "BasePoint.h"
-class MyArc : public BasePoint
-{
+#include "Object.h"
+class MyArc : public BasePoint, virtual public Object {
+protected:
 	int xc, yc;
 	int r;
 	double aStart, aEnd;

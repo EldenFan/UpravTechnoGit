@@ -1,8 +1,2 @@
-﻿  MyArc.cpp
-D:\Програмирование\UpravTechnoGit\teacher\MyArc.cpp(14,43): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Програмирование\UpravTechnoGit\teacher\MyArc.cpp(14,35): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Програмирование\UpravTechnoGit\teacher\MyArc.cpp(21,43): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-D:\Програмирование\UpravTechnoGit\teacher\MyArc.cpp(21,35): warning C4244: аргумент: преобразование "double" в "float", возможна потеря данных
-  Task5proto.cpp
-  Создание кода...
+﻿  Sector.cpp
   CPPMItask.vcxproj -> D:\Програмирование\UpravTechnoGit\teacher\x64\Debug\CPPMItask.exe

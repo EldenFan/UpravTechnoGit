@@ -23,6 +23,8 @@
     <ClCompile Include="BasePoint.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="MyArc.cpp" />
+    <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Sector.cpp" />
     <ClCompile Include="Task5proto.cpp" />
     <ClCompile Include="VSTUB.CPP" />
   </ItemGroup>
@@ -32,6 +34,8 @@
     <ClInclude Include="Line.h" />
     <ClInclude Include="MyArc.h" />
     <ClInclude Include="MyVector.h" />
+    <ClInclude Include="Object.h" />
+    <ClInclude Include="Sector.h" />
     <ClInclude Include="VSTUB.H" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
