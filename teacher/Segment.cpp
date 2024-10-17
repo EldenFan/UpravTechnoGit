@@ -2,10 +2,10 @@
 #include <cmath>
 
 void Segment::calculateLine() {
-    x1 = xc + static_cast<int>(r * cos(aStart));
-    y1 = yc - static_cast<int>(r * sin(aStart));
-    x2 = xc + static_cast<int>(r * cos(aEnd));
-    y2 = yc - static_cast<int>(r * sin(aEnd));
+    x1 = MyArc::x0 + xc + static_cast<int>(r * cos(aStart));
+    y1 = MyArc::y0 + yc - static_cast<int>(r * sin(aStart));
+    x2 = MyArc::x0 + xc + static_cast<int>(r * cos(aEnd));
+    y2 = MyArc::y0 + yc - static_cast<int>(r * sin(aEnd));
 }
 
 Segment::Segment(int xc, int yc, int r, double aStart, double aEnd, int x0, int y0, int R, int G, int B) : Line(0, 0, 0, 0, x0, y0, R, G, B),

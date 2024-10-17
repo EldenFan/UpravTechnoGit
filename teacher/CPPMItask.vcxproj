@@ -24,6 +24,7 @@
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="MyArc.cpp" />
     <ClCompile Include="Object.cpp" />
+    <ClCompile Include="Sector.cpp" />
     <ClCompile Include="WrongSegment.cpp" />
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="Task5proto.cpp" />
@@ -36,6 +37,7 @@
     <ClInclude Include="MyArc.h" />
     <ClInclude Include="MyVector.h" />
     <ClInclude Include="Object.h" />
+    <ClInclude Include="Sector.h" />
     <ClInclude Include="WrongSegment.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="VSTUB.H" />

@@ -9,5 +9,6 @@ public:
 	Line(const Line&) = default;
 	void draw() override;
 	void shade() override;
+	void setCoordinates(int, int, int, int);
 };
 
