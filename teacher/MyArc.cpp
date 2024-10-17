@@ -9,15 +9,11 @@ MyArc::MyArc(int xc, int yc, int r, double a1, double a2, int x0, int y0, int R,
  }
 
 void MyArc::draw() {
-	if (!isShade) return;
 	std::setcolor(colorR, colorG, colorB);
-	std::putarc(xc + x0, yc + y0, r, aStart, aEnd);
-	isShade = false;
+	std::putarc(xc + x0, yc + y0, r, aStart, aEnd - aStart);
 }
 
 void MyArc::shade() {
-	if (isShade) return;
 	std::setcolor(0, 0, 0);
-	std::putarc(xc + x0, yc + y0, r, aStart, aEnd);
-	isShade = true;
+	std::putarc(xc + x0, yc + y0, r, aStart, aEnd - aStart);
 }

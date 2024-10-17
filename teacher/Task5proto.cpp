@@ -2,18 +2,21 @@
 #include "Line.h"
 #include "MyArc.h"
 #include "AnchorPoint.h"
-#include "Sector.h"
+#include "Segment.h"
 
 namespace std {
 	int main() {
 		vc << "Hello!\n";
 		drawgrid();
-		Sector test(200, 200, 50, 0, 1, 0, 0, 255, 0, 255);
+		Segment test(200, 200, 50, 0, 1, 0, 0 , 255, 255, 0);
+		MyArc test1(250, 250, 50, 0, 1, 0, 0, 255, 255, 0);
 		test.draw();
+		test1.draw();
 		vgetchar();
-		vc << "Fuck\n";
-		test.print();
-		vgetchar();
+		test.move(-50, -50);
+		test1.move(-10, -10);
+		while(true)
+			vgetchar();
 		return 0;
 	}
 }

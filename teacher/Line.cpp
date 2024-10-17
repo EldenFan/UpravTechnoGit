@@ -8,15 +8,11 @@ Line::Line(int x1, int y1, int x2, int y2, int x0, int y0, int r, int g, int b) 
 }
 
 void Line::draw() {
-	if (!isShade) return;
 	std::setcolor(colorR, colorG, colorB);
 	std::putline(x1 + x0, y1 + y0, x2 + x0, y2 + y0);
-	isShade = false;
 }
 
 void Line::shade() {
-	if (isShade) return;
 	std::setcolor(0, 0, 0);
 	std::putline(x1 + x0, y1 + y0, x2 + x0, y2 + y0);
-	isShade = true;
 }

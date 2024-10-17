@@ -1,2 +1,3 @@
 F:\Программирование\C++\teacher\x64\Debug\CPPMItask.exe
 D:\Програмирование\UpravTechnoGit\teacher\x64\Debug\CPPMItask.exe
+F:\Программирование\UpravTechnoGit\teacher\x64\Debug\CPPMItask.exe

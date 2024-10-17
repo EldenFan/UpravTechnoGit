@@ -9,5 +9,5 @@ Object::Object() {
 }
 
 void Object::print() {
-	std::vc << typeid(*this).name() << ":" << ID << std::endl;
+	std::vc << typeid(*this).name() << ":" << ID << "\n";
 }
