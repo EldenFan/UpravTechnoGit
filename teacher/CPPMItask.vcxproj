@@ -21,11 +21,11 @@
   <ItemGroup>
     <ClCompile Include="AnchorPoint.cpp" />
     <ClCompile Include="BasePoint.cpp" />
+    <ClCompile Include="FakeLine.cpp" />
     <ClCompile Include="Line.cpp" />
     <ClCompile Include="MyArc.cpp" />
     <ClCompile Include="Object.cpp" />
     <ClCompile Include="Sector.cpp" />
-    <ClCompile Include="WrongSegment.cpp" />
     <ClCompile Include="Segment.cpp" />
     <ClCompile Include="Task5proto.cpp" />
     <ClCompile Include="VSTUB.CPP" />
@@ -33,12 +33,12 @@
   <ItemGroup>
     <ClInclude Include="AnchorPoint.h" />
     <ClInclude Include="BasePoint.h" />
+    <ClInclude Include="FakeLine.h" />
     <ClInclude Include="Line.h" />
     <ClInclude Include="MyArc.h" />
     <ClInclude Include="MyVector.h" />
     <ClInclude Include="Object.h" />
     <ClInclude Include="Sector.h" />
-    <ClInclude Include="WrongSegment.h" />
     <ClInclude Include="Segment.h" />
     <ClInclude Include="VSTUB.H" />
   </ItemGroup>

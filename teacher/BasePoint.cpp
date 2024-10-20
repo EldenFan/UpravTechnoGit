@@ -11,7 +11,9 @@ BasePoint::BasePoint(int x, int y, int R, int G, int B) {
 
 void BasePoint::move(int dx, int dy) {
 		shade();
+		Sleep(10);
 		x0 += dx;
 		y0 += dy;
 		draw();
+		Sleep(10);
 }

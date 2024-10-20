@@ -16,6 +16,8 @@ namespace std {
 		vgetchar();
 		test.move(-50, -50);
 		test1.move(20, 20);
+		test.print();
+		test1.print();
 		while(true)
 			vgetchar();
 		return 0;

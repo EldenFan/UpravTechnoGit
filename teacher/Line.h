@@ -1,7 +1,7 @@
 #pragma once
 #include "BasePoint.h"
 #include "Object.h"
-class Line : public BasePoint, virtual public  Object {
+class Line : virtual public BasePoint, virtual public  Object {
 protected:
 	int x1, y1, x2, y2;
 public:
@@ -9,6 +9,5 @@ public:
 	Line(const Line&) = default;
 	void draw() override;
 	void shade() override;
-	void setCoordinates(int, int, int, int);
 };
 

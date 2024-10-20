@@ -8,6 +8,5 @@ public:
 	Segment(int, int, int, double, double, int = 0, int = 0, int = 0, int = 0, int = 0);
 	void draw() override;
 	void shade() override;
-	void move(int, int);
 };
 
