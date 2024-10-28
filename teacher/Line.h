@@ -1,7 +1,7 @@
 #pragma once
 #include "BasePoint.h"
 #include "Object.h"
-class Line : virtual public BasePoint, virtual public  Object {
+class Line : virtual public BasePoint, public  Object {
 protected:
 	int x1, y1, x2, y2;
 public:

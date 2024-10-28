@@ -1,7 +1,7 @@
 #pragma once
 #include "Line.h"
 #include "MyArc.h"
-class Segment : public Line, public MyArc, virtual public Object {
+class Segment : public Line, public MyArc {
 protected:
 	void calculateLine();
 public:

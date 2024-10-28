@@ -23,12 +23,3 @@ void Segment::shade() {
     MyArc::shade();
     Line::shade();
 }
-
-//void Segment::move(int dx, int dy) {
-//    shade();
-//    MyArc::BasePoint::x0 += dx;
-//    MyArc::BasePoint::y0 += dy;
-//    Line::BasePoint::x0 += dx;
-//    Line::BasePoint::y0 += dy;
-//    draw();
-//}
