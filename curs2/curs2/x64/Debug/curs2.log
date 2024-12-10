@@ -1,0 +1,12 @@
+﻿  maincpp.cpp
+D:\Програмирование\UpravTechnoGit\curs2\curs2\maincpp.cpp(46,17): error C2039: "thread": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\chrono(49,1): message : см. объявление "std"
+D:\Програмирование\UpravTechnoGit\curs2\curs2\maincpp.cpp(46,23): error C2143: синтаксическая ошибка: отсутствие ";" перед "*"
+D:\Програмирование\UpravTechnoGit\curs2\curs2\maincpp.cpp(46,23): error C4430: отсутствует спецификатор типа - предполагается int. Примечание. C++ не поддерживает int по умолчанию
+D:\Програмирование\UpravTechnoGit\curs2\curs2\maincpp.cpp(46,25): error C2065: pThreads: необъявленный идентификатор
+D:\Програмирование\UpravTechnoGit\curs2\curs2\maincpp.cpp(58,9): error C2065: pThreads: необъявленный идентификатор
+D:\Програмирование\UpravTechnoGit\curs2\curs2\maincpp.cpp(58,32): error C2039: "thread": не является членом "std".
+C:\Program Files\Microsoft Visual Studio\2022\Community\VC\Tools\MSVC\14.37.32822\include\chrono(49,1): message : см. объявление "std"
+D:\Програмирование\UpravTechnoGit\curs2\curs2\maincpp.cpp(58,32): error C2061: синтаксическая ошибка: идентификатор "thread"
+D:\Програмирование\UpravTechnoGit\curs2\curs2\maincpp.cpp(62,9): error C2065: pThreads: необъявленный идентификатор
+D:\Програмирование\UpravTechnoGit\curs2\curs2\maincpp.cpp(70,16): error C2065: pThreads: необъявленный идентификатор
